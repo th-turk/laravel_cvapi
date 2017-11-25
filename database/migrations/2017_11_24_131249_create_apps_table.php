@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDocumentationTable extends Migration
+class CreateAppsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateDocumentationTable extends Migration
      */
     public function up()
     {
-        Schema::create('"documentation"', function (Blueprint $table) {
+        Schema::create('apps', function (Blueprint $table) {
             $table->increments('id');
-            $table->
+            $table->string("name");
+            $table->string("public_key");
+            $table->string("send_key");
+            $table->string("password");
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateDocumentationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('"documentation"');
+        Schema::dropIfExists('apps');
     }
 }
